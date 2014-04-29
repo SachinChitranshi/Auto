@@ -42,7 +42,12 @@
             <tr>
                 <td>&nbsp;</td>
                 <td>
-                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <asp:Label ID="lblErrMsg" runat="server"></asp:Label>
                 </td>
             </tr>
         </table>
