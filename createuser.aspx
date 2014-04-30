@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <h3>Create New User</h3><br />
+     <h3>Create New User</h3>
     <div>
     <table>
         <tr>
@@ -29,7 +29,7 @@
             <td>
                 User Id:<td>
                 <asp:TextBox ID="txtUserId" runat="server"></asp:TextBox>
-            </td>
+                *</td>
         </tr>
       
         <tr>
