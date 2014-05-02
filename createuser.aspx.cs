@@ -31,7 +31,7 @@ public partial class createuser : System.Web.UI.Page
                 arrPassParameters = new string[0];
                 dsObjDataSet.Clear();
                 dsObjDataSet = objDataInteraction.dsGetRecordSet(arrPassParameters, "SPGetUsersType");//SP get user type
-                objAuthentication.funBindDropDownList(ddlistUsertype, dsObjDataSet,"RoleID", "RoleName", "UserType");
+                objAuthentication.funBindDropDownList(ddlistUsertype, dsObjDataSet, "RoleName", "RoleID", "UserType");
                 lblErrMsg.Visible = false;
             }
         }
@@ -56,15 +56,14 @@ public partial class createuser : System.Web.UI.Page
 
                 arrPassParameters = null;
                 arrPassParameters = new string[9];
-                arrPassParameters[7] = ddlistUsertype.SelectedValue.Trim();
-                arrPassParameters[2] = txtUserId.Text.Trim();
-                arrPassParameters[3] = txtpassword.Text.Trim();
-                arrPassParameters[6] = txtmobileno.Text.Trim();
                 arrPassParameters[0] = txtfirstname.Text.Trim();
                 arrPassParameters[1] = txtlastname.Text.Trim();
-                arrPassParameters[6] = txtaddress.Text.Trim();
-                arrPassParameters[5] = txtemail.Text.Trim();
+                arrPassParameters[2] = txtUserId.Text.Trim();
+                arrPassParameters[3] = txtpassword.Text.Trim();
                 arrPassParameters[4] = txtDOJ.Text.Trim();
+                arrPassParameters[5] = txtemail.Text.Trim();
+                arrPassParameters[6] = txtmobileno.Text.Trim();
+                arrPassParameters[7] = ddlistUsertype.SelectedValue.Trim();
 
                 if (cbMobileLogin.Checked == true)
                     intMobileLogin = 1;
@@ -73,8 +72,8 @@ public partial class createuser : System.Web.UI.Page
 
                 arrPassParameters[8] = intMobileLogin.ToString();
                 objDataInteraction.funWithoutAnyReturn(arrPassParameters, "SPInsertNewUser");//SP Insert New User Detail
-                
-                Response.Redirect("newusercnfrm.aspx?uid="+txtUserId.Text.Trim());
+
+                Response.Redirect("newusercnfrm.aspx?uid=" + txtUserId.Text.Trim() + "&flag=0");
         }
         catch (Exception ex)
         {

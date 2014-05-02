@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manageuser.master" AutoEventWireup="true" CodeFile="createuser.aspx.cs" Inherits="createuser" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manageuser.master" AutoEventWireup="true" CodeFile="Editdetail.aspx.cs" Inherits="Editdetail" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-     <h3>Create New User</h3>
+    <h3>Edit User Details</h3>
     <div>
     <table>
         <tr>
@@ -28,23 +28,10 @@
         <tr>
             <td>
                 User Id:<td>
-                <asp:TextBox ID="txtUserId" runat="server"></asp:TextBox>
-                *</td>
+                <asp:Label ID="lblUerID" runat="server"></asp:Label>
+            </td>
         </tr>
       
-        <tr>
-            <td>
-                Password :</td>
-            <td>
-                <asp:TextBox ID="txtpassword" runat="server" MaxLength="50" TextMode="Password"></asp:TextBox>
-                *</td>
-        </tr>
-        <tr>
-            <td>Confirm Password :</td>
-            <td>
-                <asp:TextBox ID="txtconfirmpassword" runat="server" MaxLength="50" TextMode="Password"></asp:TextBox>
-                *</td>
-        </tr>
         <tr>
             <td>
                 Mobile No. :</td>
@@ -89,7 +76,7 @@
             <td>
             </td>
             <td>
-                <asp:Button ID="btncreate" runat="server" Text="Create" OnClick="btncreate_Click"  />
+                <asp:Button ID="btncreate" runat="server" Text="Edit" OnClick="btncreate_Click"  />
                 </td>
         </tr>
         <tr>
