@@ -9,13 +9,8 @@
 </head>
 <body>
   <form id="Form1" runat="server">
-  <div align="Center" style="color: red"><b style="font-size: 16pt; font-family: 'Times New Roman'">Vehicle Service</b></div>
-  <br />
-    <div class="form-fields" style="font-weight: bold">
-    <div align="center">
-	<table>
-        </table>
-        </div>
+  Vehicle Service
+  <br />	
         <asp:Label ID="lblMsg" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
         <br />
       <label for="usernanme">Login:</label>
@@ -26,8 +21,7 @@
         <asp:LinkButton ID="lnkForgotPassword" runat="server" OnClick="lnkForgotPassword_Click">Forgot Password</asp:LinkButton><br /><br />
       <label for="submit"></label>
       <asp:Button ID="Button" runat="server" Text="Login" OnClick="btnSubmit_Click" />
-      <br />
-    </div>
+      <br />    
   </form>
 </body>
 </html>

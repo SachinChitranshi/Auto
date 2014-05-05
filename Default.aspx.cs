@@ -1,5 +1,4 @@
 /*
- * Created on - 29/04/2014
  * Created by - Sachin Chitranshi
  * Copyright RFID4U.com *
  */
@@ -21,6 +20,7 @@ public partial class _default : System.Web.UI.Page
     Authentication objAuthentication = new Authentication();
     DataInteraction objDataInteraction = new DataInteraction();
     WebMsgBox objWebMsgBox = new WebMsgBox();
+    clsCrypto objclsCrypto = new clsCrypto();
     protected void Page_Load(object sender, EventArgs e)
     {
         if (Request.QueryString["msg"] == "expired")
@@ -80,13 +80,13 @@ public partial class _default : System.Web.UI.Page
             arrPassParameters = new string[2];
 
             arrPassParameters[0] = txtLogin.Text.Trim();
-            arrPassParameters[1] = txtPassword.Text.Trim();
+            arrPassParameters[1] = objclsCrypto.sha256encrypt(txtPassword.Text.Trim());
 
             dsObjDataSet.Clear();
             dsObjDataSet = objDataInteraction.dsGetRecordSet(arrPassParameters, "SPCheckUserAuthentication");//SP to check user authentication
             intRecordCount = Convert.ToInt32(dsObjDataSet.Tables[0].Rows[0]["Total"]);
 
-            if (intRecordCount == 0 || Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["loginpassword"]).Trim() != txtPassword.Text.Trim())
+            if (intRecordCount == 0 || Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["loginpassword"]).Trim() != objclsCrypto.sha256encrypt(txtPassword.Text.Trim()))
             {
                 objWebMsgBox.Show("Invalid credentials.");
             }
@@ -100,21 +100,32 @@ public partial class _default : System.Web.UI.Page
                 Session["EmailId"] = Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["EmailID"]);
                 Session["FirstName"] = Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["FirstName"]);
 
-                if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "1")
+                if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["PasswordStatus"]) == "1")
                 {
-                    Response.Redirect("1.aspx");
+                    if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "1")
+                    {
+                        Response.Redirect("1.aspx");
+                    }
+                    else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "2")
+                    {
+                        Response.Redirect("2.aspx");
+                    }
+                    else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "3")
+                    {
+                        Response.Redirect("3.aspx");
+                    }
+                    else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "4")
+                    {
+                        Response.Redirect("4.aspx");
+                    }
+                    else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "5")
+                    {
+                        Response.Redirect("5.aspx");
+                    }
                 }
-                else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "2")
+                else
                 {
-                    Response.Redirect("2.aspx");
-                }
-                else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "3")
-                {
-                    Response.Redirect("3.aspx");
-                }
-                else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "4")
-                {
-                    Response.Redirect("4.aspx");
+                    Response.Redirect("newpassword.aspx");
                 }
             }
         }

@@ -13,6 +13,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Web.UI.HtmlControls;
+using UniqueKey;
 
 public partial class forgotpassword : System.Web.UI.Page
 {
@@ -21,6 +22,7 @@ public partial class forgotpassword : System.Web.UI.Page
     Authentication objAuthentication = new Authentication();
     DataInteraction objDataInteraction = new DataInteraction();
     WebMsgBox objWebMsgBox = new WebMsgBox();
+    clsCrypto objclsCrypto = new clsCrypto();
     protected void Page_Load(object sender, EventArgs e)
     {
 
@@ -29,10 +31,15 @@ public partial class forgotpassword : System.Web.UI.Page
     {
         try
         {
-            if (txtEmailId.Text.Trim() == "" || txtUserId.Text.Trim() == "")
+            if (txtEmailId.Text.Trim() == "" && txtUserId.Text.Trim() == "")
             {
                 lblMessage.Visible = true;
                 lblMessage.Text = "Please insert userid or emailid";
+            }
+            else if(!objAuthentication.funIsValidEmailId(txtEmailId.Text.Trim()))
+            {
+                lblMessage.Visible = true;
+                lblMessage.Text = "Please insert correct emailid";
             }
             else
             {
@@ -52,7 +59,22 @@ public partial class forgotpassword : System.Web.UI.Page
                 }
                 else
                 {
-                    objAuthentication.funSendMail(Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["EmailID"]), "Dear " + Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["firstname"]) + "," + System.Environment.NewLine + "Your password is:" + Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["LoginPassword"]));
+                    string strUniqueKey=UniqueKey.KeyGenerator.GetUniqueKey(8);
+                    objAuthentication.funSendMail(Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["EmailID"]), "Dear " + Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["firstname"]) + "," + System.Environment.NewLine + "Your new password is:" + strUniqueKey);
+
+                    //////////////Send New Password///////////////////////
+                    arrPassParameters = null;
+                    arrPassParameters = new string[2];
+
+                    arrPassParameters[0] = Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["EmailID"]).Trim();
+                    arrPassParameters[1] = objclsCrypto.sha256encrypt(strUniqueKey);
+
+                    dsObjDataSet.Clear();
+                    objDataInteraction.funWithoutAnyReturn(arrPassParameters, "SPUpdatePassword");//SP to update password
+                    ///////////////Update New Password/////////////////////   
+
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Mail sent.";
                 }
             }
         }

@@ -3,3 +3,5 @@ Validation Part(With Role and General)
 Status Flag in Tab
 Users Hierarchy
 Role wise page
+Primary key validation
+try/catch

@@ -1,5 +1,5 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="manageuser.master.cs" Inherits="manageuser" %>
-<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="settings.master.cs" Inherits="settings" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -10,7 +10,6 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         

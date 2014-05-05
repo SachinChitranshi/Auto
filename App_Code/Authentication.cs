@@ -1310,7 +1310,7 @@ public class Authentication
 
                 catch (Exception ex)
                 {
-                    File.Delete(HttpContext.Current.Server.MapPath("~" + strExcelPath + System.IO.Path.GetFileName(fuExcelFileUpload.PostedFile.FileName)));
+                    //File.Delete(HttpContext.Current.Server.MapPath("~" + strExcelPath + System.IO.Path.GetFileName(fuExcelFileUpload.PostedFile.FileName)));
                     string strErrorResponseMessage = ex.Message;
                     string[] strarrErrMessageRegardingColumn = Regex.Split(strErrorResponseMessage, "column");
                     string[] strarrErrMessageRegardingPK = Regex.Split(strErrorResponseMessage, "constraint");

@@ -32,8 +32,7 @@
             </Columns>
         </asp:GridView>
   <br />
-    <div align="right">
-        </div>
+   
     <p>
         <asp:Label ID="lblDeactivatedUsers" runat="server" style="font-weight: 700" Text="Deactivated Users"></asp:Label>
     </p>
@@ -59,8 +58,6 @@
     </asp:TemplateField>
         </Columns>
     </asp:GridView>
-     <br />
-    <div align="right">
-        </div>
+   
 </asp:Content>
 

@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/manageuser.master" AutoEventWireup="true" CodeFile="createuser.aspx.cs" Inherits="createuser" %>
-
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -71,7 +71,10 @@
             <td>
                 DOJ :</td>
             <td>
-                <asp:TextBox ID="txtDOJ" runat="server" MaxLength="25"></asp:TextBox></td>
+                <asp:TextBox ID="txtDOJ" runat="server" MaxLength="25"></asp:TextBox>
+                <cc1:CalendarExtender ID="ceFrom" runat="server" Format="MM/dd/yyyy" TargetControlID="txtDOJ">
+                </cc1:CalendarExtender>
+            </td>
         </tr>
         <tr>
             <td>
