@@ -1,17 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="smsmaster.aspx.cs" Inherits="smsmaster" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/settings.master" AutoEventWireup="true" CodeFile="smsmaster.aspx.cs" Inherits="smsmaster" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-   
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+
+
+
     <div>
     
-        <table>
+        <table class="table table-striped">
             <tr>
                 <td>
                     <asp:FileUpload ID="fuSMS" runat="server" />
@@ -53,21 +51,46 @@
         </table>
         <br />
         Active SMS
-        <asp:GridView ID="gvActiveSMS" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnRowCommand="gvActiveSMS_RowCommand" OnRowDataBound="gvActiveSMS_RowDataBound">
+        <asp:GridView ID="gvActiveSMS" runat="server" class="table table-striped" AllowPaging="True" AutoGenerateColumns="False" OnRowCommand="gvActiveSMS_RowCommand" OnRowDataBound="gvActiveSMS_RowDataBound" OnRowCancelingEdit="gvActiveSMS_RowCancelingEdit" OnRowEditing="gvActiveSMS_RowEditing" OnRowUpdating="gvActiveSMS_RowUpdating">
             <Columns>
-                <asp:BoundField DataField="SMSText" HeaderText="SMS" />
+                
+                   <asp:TemplateField  HeaderText="SMS Text">
+                        <EditItemTemplate>
+                        <asp:TextBox ID="txtSMSText" runat="server" Text='<%# Eval("SMSText") %>'></asp:TextBox>
+                        </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="lblSMSText" runat="server" Text='<%# Eval("SMSText") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                  <asp:TemplateField HeaderText="Active SMS">
           <ItemTemplate>
                    <asp:LinkButton ID="lnkActivated" runat="server" CommandArgument='<%# Eval("incrid") %>'
                      CommandName="Active">
                                  Click to deactivate</asp:LinkButton>
                                       </ItemTemplate>
-                                  </asp:TemplateField>                
+                                  </asp:TemplateField>  
+                
+                <asp:TemplateField HeaderText="Edit" ShowHeader="False">
+               <ItemTemplate>
+  <asp:LinkButton ID="btnedit" runat="server" CommandName="Edit" Text="Edit" ></asp:LinkButton>
+               </ItemTemplate>
+               <EditItemTemplate>
+     <asp:LinkButton ID="btnupdate" runat="server" CommandName="Update" Text="Update" ></asp:LinkButton>
+     <asp:LinkButton ID="btncancel" runat="server" CommandName="Cancel" Text="Cancel"></asp:LinkButton>
+               </EditItemTemplate>
+            </asp:TemplateField>   
+                
+                 <asp:TemplateField  HeaderText="incrid" Visible="false">                        
+                            <ItemTemplate>
+                                <asp:Label ID="lblIncrId" runat="server" Text='<%# Eval("incrid") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                              
             </Columns>
         </asp:GridView>
         <br /><br />
         Deactive SMS
-        <asp:GridView ID="gvDeactiveSMS" runat="server" AllowPaging="True" AutoGenerateColumns="False" OnRowCommand="gvDeactiveSMS_RowCommand" OnRowDataBound="gvDeactiveSMS_RowDataBound">
+        <asp:GridView ID="gvDeactiveSMS" runat="server" class="table table-striped" AllowPaging="True" AutoGenerateColumns="False" OnRowCommand="gvDeactiveSMS_RowCommand" OnRowDataBound="gvDeactiveSMS_RowDataBound">
             <Columns>
                 <asp:BoundField DataField="SMSText" HeaderText="SMS" />
                  <asp:TemplateField HeaderText="Deactive SMS">
@@ -79,6 +102,4 @@
                                   </asp:TemplateField>
             </Columns>
         </asp:GridView>
-    </form>
-</body>
-</html>
+</asp:Content>

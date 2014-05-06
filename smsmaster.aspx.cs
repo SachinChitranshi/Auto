@@ -161,4 +161,28 @@ public partial class smsmaster : System.Web.UI.Page
     {
         Response.Redirect("~//Sample Excels//SMSMaster.xls");
     }
+    protected void gvActiveSMS_RowEditing(object sender, GridViewEditEventArgs e)
+    {
+        gvActiveSMS.EditIndex = e.NewEditIndex;
+        getAllSMS();
+    }
+    protected void gvActiveSMS_RowCancelingEdit(object sender, GridViewCancelEditEventArgs e)
+    {
+        gvActiveSMS.EditIndex = -1;
+        getAllSMS();
+    }
+    protected void gvActiveSMS_RowUpdating(object sender, GridViewUpdateEventArgs e)
+    {
+        Label lblIncrId = (Label)gvActiveSMS.Rows[e.RowIndex].FindControl("lblIncrId");
+        TextBox txtSMSText = (TextBox)gvActiveSMS.Rows[e.RowIndex].FindControl("txtSMSText");
+
+        arrPassParameters = null;
+        arrPassParameters = new string[2];
+        arrPassParameters[0] = txtSMSText.Text.Trim();
+        arrPassParameters[1] = lblIncrId.Text.Trim();
+        dsObjDataSet.Clear();
+        objDataInteraction.funWithoutAnyReturn(arrPassParameters, "SPEditActivatedSMS");//Edit Activate SMS  
+        gvActiveSMS.EditIndex = -1;
+        getAllSMS();
+    }
 }

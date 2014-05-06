@@ -35,8 +35,8 @@ public partial class Editdetail : System.Web.UI.Page
             /////////////////////////////////End Bind User Role///////////////////////////////////////////////////////////////////////
             arrPassParameters = null;
             arrPassParameters = new string[2];
-            arrPassParameters[0] = Request.QueryString["loginname"].Trim();
-            arrPassParameters[1] = Request.QueryString["incrid"].Trim();
+            arrPassParameters[0] = Request.QueryString["uid"].Trim();
+            arrPassParameters[1] = Request.QueryString["slno"].Trim();
             dsObjDataSet.Clear();
             dsObjDataSet = objDataInteraction.dsGetRecordSet(arrPassParameters, "SPGetUserWiseDetails");//SP users details
             int rowCount = dsObjDataSet.Tables[0].Rows.Count;

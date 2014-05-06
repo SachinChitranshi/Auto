@@ -1,15 +1,119 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="manageuser.master.cs" Inherits="manageuser" %>
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!DOCTYPE html>
+<html lang="en">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder id="head" runat="server">
-    </asp:ContentPlaceHolder>
+
+    <title>Manage User Master</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+    
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/justified-nav.css" rel="stylesheet">
+    
+    
+    <!--link href="assets/css/bootstrap-responsive.css" rel="stylesheet"-->
+
+   
+    <!--[if lt IE 9]><script src="assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+<asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+
 </head>
 <body>
-    <form id="form1" runat="server">
+    
+    
+  
+    <div class="navbar-wrapper margintop">
+            <div class="container">
+                <div class="navbar navbar-inverse navbar-static-top">
+                    <div class="container margin_left_small">
+                        <div class="navbar-header">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand displaynone" href="#">Project name</a>
+                        </div> 
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav">
+                               
+                                <li class="active"><a href="#" id="drop1" class="dropdown-toggle" data-toggle="dropdown">Personal Info <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                        <li><a tabindex="-1" href="changepassword.html">Change Password</a></li>
+                                        <li><a tabindex="-1" href="editdetail.html">Edit Detail</a></li>
+                                    </ul>
+                                </li>
+                                
+                                <li><a href="#" id="drop1" class="dropdown-toggle" data-toggle="dropdown">User Management <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                        <li><a tabindex="-1" href="activeusers.html">Active Users</a></li>
+                                        <li><a tabindex="-1" href="changepassword.html">Change Password</a></li>
+                                        <li><a tabindex="-1" href="createuser.html">Create User</a></li>
+                                        <li><a tabindex="-1" href="Editdetail.html">Edit Detail</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+								<li><a href="#" id="drop1" class="dropdown-toggle" data-toggle="dropdown">Settings <b class="caret"></b></a>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="drop1">
+                                        <li><a tabindex="-1" href="smsmaster.html">SMS Master</a></li>
+                                        
+                                    </ul>
+                                </li>
+                                
+                                
+                                <li><a href="Broadcast.html">Broadcast</a></li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="Masters.html">Masters</a></li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="Dashboard.html">Dashboard</a></li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="Reports.html">Reports</a></li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="Vehicle_Tracker.html">Vehicle Tracker</a></li>
+                                <li class="divider"></li>
+                                
+                                <li><a href="Key_Tracker.html">Key Tracker</a></li>
+                               
+                                
+                                
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+  
+    <br/><br/>
+
+
+<div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+       
+
+            <form id="form1" runat="server" class="form-horizontal" role="form">
+                 
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
@@ -17,5 +121,40 @@
         </asp:ContentPlaceHolder>
     </div>
     </form>
+
+        
+        </div>
+      </div>
+</div>
+
+
+
+
+
+
+
+
+    
+        <!-- Bootstrap javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    
+    <!--script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script-->
+    
 </body>
 </html>

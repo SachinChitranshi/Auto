@@ -1,20 +1,77 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="settings.master.cs" Inherits="settings" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeFile="settings.master.cs" Inherits="settings" %>
+
 
 <!DOCTYPE html>
+<html lang="en">
+  <head runat="server">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+    
+    <title>SMS Master :</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/ico/favicon.ico">
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/signin.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    
+
+    <!-- Just for debugging purposes. Don't actually copy this line! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+
+
 </head>
+
+
+
 <body>
+
+    <div class="container">
     <form id="form1" runat="server">
     <div>
         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
         
+
+
+
+
         </asp:ContentPlaceHolder>
     </div>
     </form>
+        </div>
+
+        <!-- Bootstrap javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap-button.js"></script>
+    
+    <!--script src="assets/js/bootstrap-transition.js"></script>
+    <script src="assets/js/bootstrap-alert.js"></script>
+    <script src="assets/js/bootstrap-modal.js"></script>
+    <script src="assets/js/bootstrap-dropdown.js"></script>
+    <script src="assets/js/bootstrap-scrollspy.js"></script>
+    <script src="assets/js/bootstrap-tab.js"></script>
+    <script src="assets/js/bootstrap-tooltip.js"></script>
+    <script src="assets/js/bootstrap-popover.js"></script>
+    
+    <script src="assets/js/bootstrap-collapse.js"></script>
+    <script src="assets/js/bootstrap-carousel.js"></script>
+    <script src="assets/js/bootstrap-typeahead.js"></script-->
+
 </body>
 </html>

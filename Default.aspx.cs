@@ -104,23 +104,23 @@ public partial class _default : System.Web.UI.Page
                 {
                     if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "1")
                     {
-                        Response.Redirect("1.aspx");
+                        Response.Redirect("dashboard.aspx");
                     }
                     else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "2")
                     {
-                        Response.Redirect("2.aspx");
+                        Response.Redirect("dashboard.aspx");
                     }
                     else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "3")
                     {
-                        Response.Redirect("3.aspx");
+                        Response.Redirect("dashboard.aspx");
                     }
                     else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "4")
                     {
-                        Response.Redirect("4.aspx");
+                        Response.Redirect("dashboard.aspx");
                     }
                     else if (Convert.ToString(dsObjDataSet.Tables[1].Rows[0]["roleid"]) == "5")
                     {
-                        Response.Redirect("5.aspx");
+                        Response.Redirect("dashboard.aspx");
                     }
                 }
                 else
